@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#Result {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#Result td, #Result th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#Result tr:nth-child(even){background-color: #f2f2f2;}
+
+#Result tr:hover {background-color: #ddd;}
+
+#Result th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>The Output</h1>
+
+<table id="Result">
+  <tr>
+    <th>Rule</th>
+    <th>Support</th>
+    <th>Confidence</th>
+    <th>Lift</th>
+  </tr>
+<tr>
+{% for key in result %}
+{% if key == "=>" %}
+	</tr>
+	<tr>
+{% else %}
+	<td> {{ key }} </td>
+    
+{% endif %}
+{% endfor %}
+</table>
+
+</body>
+</html>
